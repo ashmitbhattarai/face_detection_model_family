@@ -1,5 +1,5 @@
 *__pycache__
-notebook/runs
-notebook/wandb
+notebooks/runs
+notebooks/wandb
 data
 *.pyc
