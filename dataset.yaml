@@ -1,8 +1,8 @@
 # train val sets defined as per the documentation based on coco128.yaml
-path: /home/ashmitbhattarai/Codes/face_detection_model_family/data/labels/ashmit
+path: /home/ashmitbhattarai/Codes/face_detection_model_family/data/images/train
 train: images
 val: images
 
 
-nc: 2
-names: [ashmit','glasses']
+nc: 4
+names: [ashmit','glasses','samjhu','ramesh']

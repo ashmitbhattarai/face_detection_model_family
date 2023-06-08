@@ -45,3 +45,12 @@ config: {'task': 'detect', 'mode': 'train', 'model': 'yolov8n.pt', 'data': '../d
 2023-06-08 18:22:36,091 INFO    MainThread:4914 [wandb_init.py:_resume_backend():423] resuming backend
 2023-06-08 18:24:43,229 INFO    MainThread:4914 [jupyter.py:save_ipynb():373] not saving jupyter notebook
 2023-06-08 18:24:43,229 INFO    MainThread:4914 [wandb_init.py:_pause_backend():418] pausing backend
+2023-06-08 18:34:34,728 INFO    MainThread:4914 [wandb_init.py:_resume_backend():423] resuming backend
+2023-06-08 18:34:49,780 INFO    MainThread:4914 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2023-06-08 18:34:49,780 INFO    MainThread:4914 [wandb_init.py:_pause_backend():418] pausing backend
+2023-06-08 18:34:55,651 INFO    MainThread:4914 [wandb_init.py:_resume_backend():423] resuming backend
+2023-06-08 18:35:21,017 INFO    MainThread:4914 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2023-06-08 18:35:21,017 INFO    MainThread:4914 [wandb_init.py:_pause_backend():418] pausing backend
+2023-06-08 18:35:50,018 INFO    MainThread:4914 [wandb_init.py:_resume_backend():423] resuming backend
+2023-06-08 18:36:43,719 INFO    MainThread:4914 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2023-06-08 18:36:43,719 INFO    MainThread:4914 [wandb_init.py:_pause_backend():418] pausing backend
