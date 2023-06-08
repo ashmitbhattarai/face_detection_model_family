@@ -1,0 +1,4 @@
+*.jpg
+*.pt
+*/runs/
+*/wandb
