@@ -1,5 +1,4 @@
-*.jpg
-*.pt
+*__pycache__
 notebook/runs/*
 notebook/wandb/*
 data/*
