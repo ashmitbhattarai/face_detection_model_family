@@ -1,5 +1,5 @@
 *__pycache__
-notebook/runs/*
-notebook/wandb/*
+notebook/runs
+notebook/wandb
 data/*
 *.png
