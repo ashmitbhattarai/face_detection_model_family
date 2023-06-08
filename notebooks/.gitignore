@@ -1,4 +1,6 @@
 *.jpg
 *.pt
-*/runs/
-*/wandb
+notebook/runs/*
+notebook/wandb/*
+data/*
+*.png
