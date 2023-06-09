@@ -1,5 +1,9 @@
 *__pycache__
 notebooks/runs
+notebooks/runs/*
 notebooks/wandb
+notebooks/wandb/*
 data
+data/*
 *.pyc
+*.vscode
