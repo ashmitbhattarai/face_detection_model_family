@@ -5,4 +5,4 @@ val: images
 
 
 nc: 4
-names: [ashmit','glasses','samjhu','ramesh']
+names: ['ashmit','glasses','ramesh','samjhu']
