@@ -1,0 +1,124 @@
+{
+    "os": "Linux-6.2.0-20-generic-x86_64-with-glibc2.37",
+    "python": "3.11.3",
+    "heartbeatAt": "2023-06-11T06:20:59.180123",
+    "startedAt": "2023-06-11T06:20:58.199749",
+    "docker": null,
+    "cuda": null,
+    "args": null,
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "git@github.com:ashmitbhattarai/face_detection_model_family.git",
+        "commit": "51af0520aa5241f35eb30adf099077a390925dd7"
+    },
+    "email": "bhtri.ashmit@gmail.com",
+    "root": "/home/ashmitbhattarai/Codes/face_detection_model_family",
+    "host": "ashmitbhattarai-DLM",
+    "username": "ashmitbhattarai",
+    "executable": "/home/ashmitbhattarai/miniconda3/envs/torch_cuda/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 3.370687499999999,
+        "min": 2200.0,
+        "max": 3400.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3.104,
+            "min": 2200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 3.517,
+            "min": 2200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 3.067,
+            "min": 2200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 3.485,
+            "min": 2200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 4.021,
+            "min": 2200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 4.161,
+            "min": 2200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 3.955,
+            "min": 2200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 4.067,
+            "min": 2200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 3.263,
+            "min": 2200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 3.588,
+            "min": 2200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 3.414,
+            "min": 2200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 3.464,
+            "min": 2200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 4.323,
+            "min": 2200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 3.565,
+            "min": 2200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 3.605,
+            "min": 2200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 3.599,
+            "min": 2200.0,
+            "max": 3400.0
+        }
+    ],
+    "disk": {
+        "total": 914.7823104858398,
+        "used": 133.84517288208008
+    },
+    "gpu": "NVIDIA GeForce RTX 3070 Ti",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3070 Ti",
+            "memory_total": 8589934592
+        }
+    ],
+    "memory": {
+        "total": 15.512504577636719
+    }
+}

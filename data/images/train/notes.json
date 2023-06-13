@@ -1,0 +1,37 @@
+{
+  "categories": [
+    {
+      "id": 0,
+      "name": "alishma"
+    },
+    {
+      "id": 1,
+      "name": "ashmit"
+    },
+    {
+      "id": 2,
+      "name": "glasses"
+    },
+    {
+      "id": 3,
+      "name": "pradip"
+    },
+    {
+      "id": 4,
+      "name": "ramesh"
+    },
+    {
+      "id": 5,
+      "name": "sabin"
+    },
+    {
+      "id": 6,
+      "name": "samjhu"
+    }
+  ],
+  "info": {
+    "year": 2023,
+    "version": "1.0",
+    "contributor": "Label Studio"
+  }
+}
