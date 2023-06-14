@@ -1,0 +1,11 @@
+data_load:
+  cmd: python src/prepare_data.py --config=params.yaml
+  deps:
+   - src/prepare_data.py
+  params:
+   - base
+   - data_load
+  outs:
+   - data/train/*.jpg
+   - data/val/*.jpg
+   - data/test/*.jpg
