@@ -28,7 +28,7 @@ seaborn>=0.11.0
 # onnxsim>=0.4.1  # ONNX simplifier
 # nvidia-pyindex  # TensorRT export
 # nvidia-tensorrt  # TensorRT export
-# scikit-learn==0.19.2  # CoreML quantization
+scikit-learn>=0.19.2  # CoreML quantization
 # tensorflow>=2.4.1  # TF exports (-cpu, -aarch64, -macos)
 # tflite-support
 # tensorflowjs>=3.9.0  # TF.js export

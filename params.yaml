@@ -1,2 +1,3 @@
 data_load:
- images_path: data/images
+ raw_images_path: data/raw
+ prepared_images_path: data/prepared
