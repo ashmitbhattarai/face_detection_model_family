@@ -1,0 +1,32 @@
+schema: '2.0'
+stages:
+  prepare_data:
+    cmd: python src/prepare_data.py --config=params.yaml
+    deps:
+    - path: data/raw/images
+      md5: 18a858e71bf9ade3b4c8b29548bb9c2e.dir
+      size: 88957546
+      nfiles: 180
+    - path: data/raw/labels
+      md5: c24219cec456a2ea09a54be5be369c21.dir
+      size: 32321
+      nfiles: 180
+    - path: params.yaml
+      md5: 1895bc3f66c79f8a1cb6b61429bee930
+      size: 253
+    - path: src/prepare_data.py
+      md5: d4dcf53a0484755674ddb049f5eb85a1
+      size: 3553
+    outs:
+    - path: data/prepared/test
+      md5: 2e188dec0c5d7d7e7e431c68d653f484.dir
+      size: 8028001
+      nfiles: 37
+    - path: data/prepared/train
+      md5: f942d90b45dba41294c14a69164e0598.dir
+      size: 67988137
+      nfiles: 271
+    - path: data/prepared/val
+      md5: 61251750a2a5f4fe7f7e89bbf96d2464.dir
+      size: 12973951
+      nfiles: 55
