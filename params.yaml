@@ -1,3 +1,16 @@
 data_load:
- raw_images_path: data/raw
- prepared_images_path: data/prepared
+ raw_images_path: datasets/raw
+ prepared_images_path: datasets/prepared
+train:
+ pretrained_path: src/yolov8s.pt
+ dataset_path: dataset.yaml
+ hyperparams:
+  epochs: 300
+  batch_size: 16
+  img_size: 320
+  workers: 1
+  agnostic_nms: True
+  conf: 0.7
+
+
+

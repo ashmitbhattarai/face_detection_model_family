@@ -37,22 +37,24 @@ def create_train_test_val(config_path: str) -> None:
             
             
             # print (label_txt, image_path)
-            
+    print ("Total Images:",len(images))
     images_train, images_split, labels_train, labels_split = train_test_split(
         images,
         labels,
-        random_state=33,
+        random_state=15,
         test_size=0.3
     )
-
+    print ("Train Images:",len(images_train))
     images_val,images_test, labels_val,labels_test = train_test_split(
         images_split,
         labels_split,
         test_size=0.5,
         shuffle=True,
-        random_state=33
+        random_state=15
     )
-
+    print ("Validation Images:",len(images_val))
+    print ("Test Images:",len(images_test))
+    
     # consistent with split_mode 
     images_files_list = [images_train,images_val,images_test]
     labels_files_list = [labels_train,labels_val,labels_test]

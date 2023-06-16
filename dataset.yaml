@@ -1,7 +1,9 @@
 # train val sets defined as per the documentation based on coco128.yaml
-path: /home/ashmitbhattarai/Codes/face_detection_model_family/notebooks/data/train
-train: images
-val: images
+# path: data/prepared/
+path: prepared/
+train: train/images
+val: val/images
+test: test/images
 
 
 nc: 10

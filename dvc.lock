@@ -3,30 +3,59 @@ stages:
   prepare_data:
     cmd: python src/prepare_data.py --config=params.yaml
     deps:
-    - path: data/raw/images
+    - path: datasets/raw/images
       md5: 18a858e71bf9ade3b4c8b29548bb9c2e.dir
       size: 88957546
       nfiles: 180
-    - path: data/raw/labels
+    - path: datasets/raw/labels
       md5: c24219cec456a2ea09a54be5be369c21.dir
       size: 32321
       nfiles: 180
     - path: params.yaml
-      md5: 1895bc3f66c79f8a1cb6b61429bee930
-      size: 253
+      md5: 178be60623860d362c39269d423ba638
+      size: 261
     - path: src/prepare_data.py
-      md5: d4dcf53a0484755674ddb049f5eb85a1
-      size: 3553
+      md5: b267e0a934c3f677c8348fa950620d3c
+      size: 3555
     outs:
-    - path: data/prepared/test
-      md5: 2e188dec0c5d7d7e7e431c68d653f484.dir
-      size: 8028001
-      nfiles: 37
-    - path: data/prepared/train
-      md5: f942d90b45dba41294c14a69164e0598.dir
-      size: 67988137
-      nfiles: 271
-    - path: data/prepared/val
-      md5: 61251750a2a5f4fe7f7e89bbf96d2464.dir
-      size: 12973951
+    - path: datasets/prepared/test
+      md5: 8f9fe4c91da827cc9edc2e0073014ec3.dir
+      size: 19408035
       nfiles: 55
+    - path: datasets/prepared/train
+      md5: 400171475c2a94858efb837e4a8413bc.dir
+      size: 61213222
+      nfiles: 253
+    - path: datasets/prepared/val
+      md5: bf62adb2a1941d8645e8371e7c824257.dir
+      size: 8368832
+      nfiles: 55
+  train:
+    cmd: python src/train.py --config=params.yaml
+    deps:
+    - path: datasets/prepared/test
+      md5: 8f9fe4c91da827cc9edc2e0073014ec3.dir
+      size: 19408035
+      nfiles: 55
+    - path: datasets/prepared/train
+      md5: df46e07333b85a3505674a4c9dee208f.dir
+      size: 103882573
+      nfiles: 254
+    - path: datasets/prepared/val
+      md5: 9d36173c5fb63d6034a20ae640cb6ba7.dir
+      size: 15300671
+      nfiles: 56
+    - path: params.yaml
+      md5: 178be60623860d362c39269d423ba638
+      size: 261
+    - path: src/train.py
+      md5: 7e735880f2844709c423b48244bf5f89
+      size: 1937
+    - path: yolov8n.pt
+      md5: 0305608151dd1725c9d7da6882ae52d5
+      size: 6534387
+    outs:
+    - path: face_detection_model
+      md5: a33be34c77bb24a8d3cfd7da48a7a633.dir
+      size: 48316788
+      nfiles: 19
