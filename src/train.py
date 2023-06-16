@@ -46,7 +46,10 @@ def train(config_path: str) -> None:
     )
     # training is completed, save the metrics and models
     model_metrics = model.metrics
-    path_saved_model = str(model_metrics.save_dir)
+    model_saved_path = str(model_metrics.save_dir)
+    
+
+
     # model_dest = 
 
     # path_to_confusion_matrix_plot = os.path.join(project_path,experiment_name,)
