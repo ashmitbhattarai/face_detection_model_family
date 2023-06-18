@@ -9,6 +9,7 @@ Detects faces and classifies name of the person who is either family or friend v
 - S3 integration with DVC
 
 ### TO DO:
+- Git CML
 - Sagemaker Integration for BYOC
 - Integrate Supervision for Object Tracking
 - Deploy in Sagemaker Neo + IOT GreenGrass to run model in Raspberry Pi
