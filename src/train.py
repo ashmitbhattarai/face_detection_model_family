@@ -78,10 +78,11 @@ def train(config_path: str) -> None:
         protocol=pickle.HIGHEST_PROTOCOL
     )
     
-    print ("Completed!!!")
 
 if __name__ == '__main__':
     args_parser = argparse.ArgumentParser()
     args_parser.add_argument("--config",dest='config',required=True)
     args = args_parser.parse_args()
+    print ("Starting the training job!~~~~~~")
     train(config_path=args.config)
+    print ("Completed!!!")
