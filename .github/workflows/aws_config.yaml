@@ -5,9 +5,9 @@ on:
     push:
         branches:
             - train
-    pull_request:
-        branches:
-            - main
+    # pull_request:
+    #     branches:
+    #         - main
 ### First Define the env variables needed in the code
 
 ### Jobs to Run
