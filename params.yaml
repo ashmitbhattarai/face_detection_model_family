@@ -5,8 +5,8 @@ train:
  pretrained_path: src/yolov8s.pt
  dataset_path: dataset.yaml
  hyperparams:
-  epochs: 300
-  batch_size: 16
+  epochs: 3
+  batch_size: 24
   img_size: 320
   workers: 1
   agnostic_nms: True

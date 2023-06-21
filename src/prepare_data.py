@@ -80,7 +80,7 @@ def create_train_test_val(config_path: str) -> None:
         ## Finally copy classes.txt to each data-split folders
         dest_classes_txt = os.path.join(output_folder_path,'classes.txt')
         shutil.copy(classes_file_source,dest_classes_txt)
-    print ("Completed!")
+    print ("Completed!!! ")
 
 if __name__ == '__main__':
     args_parser = argparse.ArgumentParser()

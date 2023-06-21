@@ -1,9 +1,12 @@
 from ultralytics import YOLO
+import torch
 import yaml
 import argparse
 from datetime import datetime
 import shutil
-import os
+import os,gc
+import pickle
+from numba import cuda
 
 
 def train(config_path: str) -> None:
@@ -30,6 +33,13 @@ def train(config_path: str) -> None:
     # model = "" # comment it out later or delte it
     print (model_path,"model path")
     print ("dataset PATH",dataset_path)
+
+    # empty the cache just in case
+    model = None
+    device = cuda.get_current_device()
+    device.reset()
+    torch.cuda.empty_cache()
+    gc.collect()
     model = YOLO(model_path)
 
     model.train(
@@ -45,23 +55,34 @@ def train(config_path: str) -> None:
         name=experiment_name
     )
     # training is completed, save the metrics and models
-    model_metrics = model.metrics
-    model_saved_path = str(model_metrics.save_dir)
+    model_saved_path = str(model.metrics.save_dir)
+    model_args = model.ckpt["train_args"]
+    model_metrics = model.metrics.__dict__
+    del model_metrics["on_plot"]
     
+    test_metrics = model.val(split='test')
+    test_metrics = test_metrics.__dict__
+    del test_metrics["on_plot"]
 
-
-    # model_dest = 
-
-    # path_to_confusion_matrix_plot = os.path.join(project_path,experiment_name,)
-
-
-
-    # test_result = model.val(split='test')
+    model_data = {}
+    model_data["model_name"] = model_path
+    model_data["val_metrics"] = model_metrics
+    model_data["test_metrics"] = test_metrics
+    model_data["train_args"] = model_args
+    pickle.dump(
+        model_data,
+        open(
+            os.path.join(model_saved_path,"metrics.pickle"),
+            "wb"
+        ),
+        protocol=pickle.HIGHEST_PROTOCOL
+    )
     
-    print ("Completed")
 
 if __name__ == '__main__':
     args_parser = argparse.ArgumentParser()
     args_parser.add_argument("--config",dest='config',required=True)
     args = args_parser.parse_args()
+    print ("Starting the training job!~~~~~~")
     train(config_path=args.config)
+    print ("Completed!!!")
