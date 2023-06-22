@@ -7,13 +7,14 @@ import shutil
 import os,gc
 import pickle
 from numba import cuda
+import boto3
 
 
 def train(config_path: str) -> None:
     data = yaml.safe_load(open(config_path,'r+'))
     model_path = data["train"]["pretrained_path"]
     dataset_path = data["train"]["dataset_path"]
-
+    bucket_name = data["train"]["bucket_name"]
     hyperparams = data["train"]["hyperparams"]
     project_name = "face_detection_model"
     project_path = os.path.join('runs',project_name)
@@ -33,13 +34,25 @@ def train(config_path: str) -> None:
     # model = "" # comment it out later or delte it
     print (model_path,"model path")
     print ("dataset PATH",dataset_path)
-
+    os.mkdir("datasets")
+    os.mkdir("datasets/prepared")
+    ### Dowload dataset directories
+    s3_client = boto3.resource("s3")
+    s3_bucket = s3_client.Bucket(bucket_name)
+    for obj in s3_bucket.objects.filter(Prefix="datasets/prepared"):
+        if not os.path.exists(os.path.dirname(obj.key)):
+            os.makedirs(os.path.dirname(obj.key))
+        # print (obj.key,"DOWNLOADING...")
+        s3_bucket.download_file(obj.key, obj.key)
     # empty the cache just in case
+    print (os.listdir('datasets/prepared'),"Datasets haru bhitra")
+
     model = None
-    device = cuda.get_current_device()
-    device.reset()
-    torch.cuda.empty_cache()
-    gc.collect()
+    if torch.cuda.is_available():
+        device = cuda.get_current_device()
+        device.reset()
+        torch.cuda.empty_cache()
+        gc.collect()
     model = YOLO(model_path)
 
     model.train(

@@ -6,7 +6,7 @@ from sagemaker.debugger import Rule, rule_configs
 from sagemaker.debugger import ProfilerRule
 import os
 
-AWS_SAGEMAKER_ROLE = os.environ.get('aws_sagemaker_role',None)
+AWS_SAGEMAKER_ROLE = "arn:aws:iam::959126252877:role/Ashmit_Custom_Sagemaker"
 
 
 
@@ -15,7 +15,7 @@ def train_sagemaker():
     bucket = sess.default_bucket()
     role = AWS_SAGEMAKER_ROLE
     region = sess.boto_region_name
-
+    print (region,bucket)
     metric_definitions=[
         {
             "Name": "precision",
@@ -66,11 +66,13 @@ def train_sagemaker():
         framework_version="2.0",
         role=role,
         instance_count = 1,
-        instance_type='ml.g4dn.xlarge',
+        instance_type='ml.c5.2xlarge',
         use_spot_insances=True,
         output_path=f"s3://{bucket}/model_artifacts/",
         metric_definitions=metric_definitions,
-        rules=rules
+        rules=rules,
+        enable_sagemaker_metrics=True,
+        dependencies = ['requirements.txt','dataset.yaml','params.yaml',"datasets/prepared"]
     )
 
     estimator.fit()

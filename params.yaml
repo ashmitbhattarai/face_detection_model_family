@@ -1,9 +1,11 @@
-data_load:
+data_load: 
  raw_images_path: datasets/raw
  prepared_images_path: datasets/prepared
+ bucket_name: sagemaker-us-east-1-959126252877
 train:
  pretrained_path: src/yolov8s.pt
  dataset_path: dataset.yaml
+ bucket_name: sagemaker-us-east-1-959126252877
  hyperparams:
   epochs: 3
   batch_size: 24

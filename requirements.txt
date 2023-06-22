@@ -43,3 +43,4 @@ psutil  # system utilization
 # roboflow
 dvc
 sagemaker
+ultralytics

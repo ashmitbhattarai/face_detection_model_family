@@ -3,11 +3,13 @@ import os
 import yaml
 import shutil
 import argparse
+import boto3
 
 def create_train_test_val(config_path: str) -> None:
     data = yaml.safe_load(open(config_path,'r+'))
     raw_files_path = data["data_load"]["raw_images_path"]
     output_path = data["data_load"]["prepared_images_path"]
+    bucket_name = data["data_load"]["bucket_name"]
     label_path = os.path.join(raw_files_path,"labels")
     classes_file_source = os.path.join(raw_files_path,'classes.txt')
 
@@ -55,7 +57,17 @@ def create_train_test_val(config_path: str) -> None:
     print ("Validation Images:",len(images_val))
     print ("Test Images:",len(images_test))
     
-    # consistent with split_mode 
+    # consistent with split_mode
+    print ("Uploading File for S3 Input in Sagemaker")
+    s3_client = boto3.resource('s3')
+    print ("delete if files already exists!")
+
+    s3_bucket = s3_client.Bucket(bucket_name)
+    try:
+        s3_bucket.objects.filter(Prefix="datasets/").delete()
+    except Exception as e:
+        print ("Error in Deleting!!", e)
+
     images_files_list = [images_train,images_val,images_test]
     labels_files_list = [labels_train,labels_val,labels_test]
     # empty everything in output dir then copy files
@@ -76,11 +88,20 @@ def create_train_test_val(config_path: str) -> None:
             # print (source_image_path,dest_image_path)
             shutil.copy(source_image_path,dest_image_path)
             shutil.copy(source_label_path,dest_label_path)
+            # upload into Amazon S3 as well
+            # s3_bucket.upload_file()
+            s3_bucket.upload_file(source_image_path,dest_image_path)
+            s3_bucket.upload_file(source_label_path,dest_label_path)
+        
 
         ## Finally copy classes.txt to each data-split folders
         dest_classes_txt = os.path.join(output_folder_path,'classes.txt')
         shutil.copy(classes_file_source,dest_classes_txt)
-    print ("Completed!!! ")
+        s3_bucket.upload_file(classes_file_source,dest_classes_txt)
+        print (output_folder_path, "Completed!!")
+    
+    print ("Copied! Locally and in Amazon S3 Completed!!!")
+
 
 if __name__ == '__main__':
     args_parser = argparse.ArgumentParser()
