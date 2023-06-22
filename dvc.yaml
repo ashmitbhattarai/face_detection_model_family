@@ -10,16 +10,16 @@ stages:
     - datasets/prepared/train
     - datasets/prepared/test
     - datasets/prepared/val
-  train:
-    cmd: python src/train.py --config=params.yaml
-    deps:
-    - datasets/prepared/train
-    - datasets/prepared/val
-    - datasets/prepared/test
-    - src/train.py
-    - src/yolov8s.pt
-    - params.yaml
-    outs:
-    - face_detection_model
+  # train:
+  #   cmd: python src/train.py --config=params.yaml
+  #   deps:
+  #   - datasets/prepared/train
+  #   - datasets/prepared/val
+  #   - datasets/prepared/test
+  #   - src/train.py
+  #   - src/yolov8s.pt
+  #   - params.yaml
+  #   outs:
+  #   - face_detection_model
   
   
