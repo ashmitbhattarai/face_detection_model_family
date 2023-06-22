@@ -81,7 +81,7 @@ def train(config_path: str) -> None:
 
 if __name__ == '__main__':
     args_parser = argparse.ArgumentParser()
-    args_parser.add_argument("--config",dest='config',required=True)
+    args_parser.add_argument("--config",dest='config',default="params.yaml")
     args = args_parser.parse_args()
     print ("Starting the training job!~~~~~~")
     train(config_path=args.config)
